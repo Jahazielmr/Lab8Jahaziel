@@ -50,12 +50,9 @@ public class Lamias extends Hadas{
     }
 
     
-    @Override
-    public float Atacar() {
     
-        return 234;
     
-    }
+    
     
     
     

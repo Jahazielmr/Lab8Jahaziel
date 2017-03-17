@@ -3,7 +3,7 @@ package jahazielmorenolab8;
 import java.io.Serializable;
 import javax.swing.JOptionPane;
 
-public abstract class Hadas implements Serializable{
+public class Hadas implements Serializable{
     
     private static final long SerialVersionUID = 777L;
     
@@ -75,7 +75,6 @@ public abstract class Hadas implements Serializable{
     }
     
     
-    public abstract float Atacar();
-    
+   
     
 }

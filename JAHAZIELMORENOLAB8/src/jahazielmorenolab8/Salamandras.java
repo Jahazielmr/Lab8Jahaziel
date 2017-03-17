@@ -27,6 +27,7 @@ public class Salamandras extends Hadas{
             JOptionPane.showMessageDialog(null, "6 o menos");
         }
     }
+
     
 
     
@@ -35,10 +36,6 @@ public class Salamandras extends Hadas{
     
     
     
-    @Override
-    public float Atacar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
     
     
     

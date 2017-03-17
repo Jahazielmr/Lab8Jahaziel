@@ -167,6 +167,11 @@ public class PrincipalLab8 extends javax.swing.JFrame {
                 jTabbedPane1StateChanged(evt);
             }
         });
+        jTabbedPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jTabbedPane1MouseEntered(evt);
+            }
+        });
 
         jLabel1.setText("Nombre");
 
@@ -753,19 +758,38 @@ public class PrincipalLab8 extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Modificar/elminar", jPanel2);
 
-        cb_player1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel37.setText("VS");
 
-        cb_player2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        pg1.setForeground(new java.awt.Color(102, 102, 102));
+        pg1.setToolTipText("");
+        pg1.setValue(100);
+        pg1.setStringPainted(true);
+        pg1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                pg1StateChanged(evt);
+            }
+        });
 
         jLabel38.setText("Hada 1");
 
         jLabel39.setText("Salud 1");
 
+        pg2.setValue(100);
+        pg2.setStringPainted(true);
+        pg2.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                pg2StateChanged(evt);
+            }
+        });
+
         jLabel40.setText("Salud 2");
 
         jButton9.setText("COMENZAR BATALLA");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -781,22 +805,22 @@ public class PrincipalLab8 extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pg1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
-                            .addComponent(cb_player1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(49, 49, 49)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_player1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pg1, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17)
                         .addComponent(jLabel37)
                         .addGap(59, 59, 59)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(pg2, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
-                            .addComponent(cb_player2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cb_player2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pg2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addComponent(jLabel38))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(185, 185, 185)
                         .addComponent(jButton9)))
-                .addContainerGap(182, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -818,7 +842,7 @@ public class PrincipalLab8 extends javax.swing.JFrame {
                     .addComponent(pg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(216, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Pelea", jPanel4);
@@ -850,6 +874,11 @@ public class PrincipalLab8 extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("About");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
 
         jMenuItem5.setText("Salir");
@@ -1190,6 +1219,20 @@ public class PrincipalLab8 extends javax.swing.JFrame {
         }
         cb_lamias.setModel(model);
         
+        model = new DefaultComboBoxModel();
+        for (Hadas t : hadas) {
+               model.addElement(t);
+           
+        }
+        cb_player1.setModel(model);
+        
+        model = new DefaultComboBoxModel();
+        for (Hadas t : hadas) {
+               model.addElement(t);
+           
+        }
+        cb_player2.setModel(model);
+        
         
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
@@ -1210,6 +1253,154 @@ public class PrincipalLab8 extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void pg2StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pg2StateChanged
+       /*
+        pg2.setValue((int) cb_player2.getItemAt(cb_player2.getSelectedIndex()).getSalud());
+        */
+    }//GEN-LAST:event_pg2StateChanged
+
+    private void jTabbedPane1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseEntered
+        /*
+        pg2.setValue((int) cb_player2.getItemAt(cb_player2.getSelectedIndex()).getSalud());
+        pg1.setValue((int) cb_player1.getItemAt(cb_player1.getSelectedIndex()).getSalud());
+        
+        */
+    }//GEN-LAST:event_jTabbedPane1MouseEntered
+
+    private void pg1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_pg1StateChanged
+        /*
+        pg1.setValue((int) cb_player1.getItemAt(cb_player1.getSelectedIndex()).getSalud());
+        */
+    }//GEN-LAST:event_pg1StateChanged
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+                
+        if (ap1.getPlayer1() instanceof Hamadriades && ap2.getPlayer2()instanceof Salamandras){
+            ap1 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap2 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap1.start();
+            ap2.start();
+        }
+        if (ap1.getPlayer1() instanceof Hamadriades && ap2.getPlayer2()instanceof Hamadriades){
+            ap1 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap2 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            
+            ap1.start();
+            ap2.start();
+        }
+        
+              if (ap1.getPlayer1()instanceof Salamandras && ap2.getPlayer2()instanceof Silfides){
+            ap1 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap2 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            
+            ap1.start();
+            ap2.start();
+        }
+        if (ap1.getPlayer1()instanceof Salamandras && ap2.getPlayer2()instanceof Hamadriades){
+            ap1 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap2 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            
+            ap1.start();
+            ap2.start();
+        }
+        if (ap1.getPlayer1()instanceof Salamandras && ap2.getPlayer2()instanceof Salamandras){
+            ap1 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap2 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            
+            ap1.start();
+            ap2.start();
+        }
+        if (ap1.getPlayer1()instanceof Hamadriades && ap2.getPlayer2() instanceof Lamias){
+            ap1 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap2 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap1.start();
+            ap2.start();
+        }
+        if (ap1.getPlayer1()instanceof Hamadriades && ap2.getPlayer2()instanceof Silfides){
+            ap1 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap2 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap1.start();
+            ap2.start();
+        }
+  
+        
+        if (ap1.getPlayer1() instanceof Lamias && ap2.getPlayer2() instanceof Silfides){
+            ap1 = new ThreadBatallas(pg1, pg2, 
+                    cb_player1.getItemAt(cb_player1.getSelectedIndex()),
+                    cb_player2.getItemAt(cb_player2.getSelectedIndex()));
+            ap2 = new ThreadBatallas(pg1, pg2, 
+                    cb_player1.getItemAt(cb_player1.getSelectedIndex()),
+                    cb_player2.getItemAt(cb_player2.getSelectedIndex()));
+            
+            ap1.start();
+            ap2.start();
+        }
+        
+        if (ap1.getPlayer1() instanceof Lamias && ap2.getPlayer2() instanceof Salamandras){
+            ap1 = new ThreadBatallas(pg1, pg2, 
+                    (Hadas)cb_player1.getSelectedItem(),
+                    (Hadas)cb_player2.getSelectedItem());
+            ap1.start();
+            ap2.start();
+        }
+          if (ap1.getPlayer1()instanceof Salamandras && ap2.getPlayer2()instanceof Lamias){
+            ap1 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap2 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            
+            ap1.start();
+            ap2.start();
+        }
+        
+        if (ap1.getPlayer1()instanceof Lamias && ap2.getPlayer2()instanceof Hamadriades){
+            ap1 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap2 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            
+            ap1.start();
+            ap2.start();
+        }
+        if (ap1.getPlayer1() instanceof Lamias && ap2.getPlayer2() instanceof Lamias){
+            ap1 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap2 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            
+            ap1.start();
+            ap2.start();
+        }
+        if (ap1.getPlayer1()instanceof Silfides && ap2.getPlayer2() instanceof Lamias){
+            ap1 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap2 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            
+            ap1.start();
+            ap2.start();
+        }
+        if (ap1.getPlayer1() instanceof Silfides && ap2.getPlayer2()instanceof Salamandras){
+            ap1 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap2 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            
+            ap1.start();
+            ap2.start();
+        }
+        if (ap1.getPlayer1()instanceof Silfides && ap2.getPlayer2() instanceof Hamadriades){
+            ap1 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap2 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            
+            ap1.start();
+            ap2.start();
+        }
+        if (ap1.getPlayer1()instanceof Silfides && ap2.getPlayer2()instanceof Silfides){
+            ap1 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            ap2 = new ThreadBatallas(pg1, pg2, (Hadas)cb_player1.getSelectedItem(), (Hadas)cb_player2.getSelectedItem());
+            
+            ap1.start();
+            ap2.start();
+        }
+      
+        
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        JOptionPane.showMessageDialog(this, "Trata sobre un juego de combate entre hadas, y de como fiallos deja su facebook abierto");
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1250,8 +1441,8 @@ public class PrincipalLab8 extends javax.swing.JFrame {
     private javax.swing.JComboBox<Hamadriades> cb_Hamadrades;
     private javax.swing.JComboBox<Salamandras> cb_Salamandras;
     private javax.swing.JComboBox<Lamias> cb_lamias;
-    private javax.swing.JComboBox<String> cb_player1;
-    private javax.swing.JComboBox<String> cb_player2;
+    private javax.swing.JComboBox<Hadas> cb_player1;
+    private javax.swing.JComboBox<Hadas> cb_player2;
     private javax.swing.JComboBox<Silfides> cb_silfides;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1361,5 +1552,6 @@ public class PrincipalLab8 extends javax.swing.JFrame {
 
     ArrayList<Hadas> hadas = new ArrayList();
     static AdminHadas ap = new AdminHadas("./Hadas.cbm");
-
+    ThreadBatallas ap1;
+    ThreadBatallas ap2;
 }

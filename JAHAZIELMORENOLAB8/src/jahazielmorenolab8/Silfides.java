@@ -41,11 +41,6 @@ public class Silfides extends Hadas{
     
     
     
-    @Override
-    public float Atacar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
     
     
     
