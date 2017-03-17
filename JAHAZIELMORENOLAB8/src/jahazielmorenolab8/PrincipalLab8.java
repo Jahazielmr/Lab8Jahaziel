@@ -5,8 +5,13 @@
  */
 package jahazielmorenolab8;
 
+import java.io.File;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -138,6 +143,15 @@ public class PrincipalLab8 extends javax.swing.JFrame {
         jLabel35 = new javax.swing.JLabel();
         cb_Salamandras = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
+        cb_player1 = new javax.swing.JComboBox<>();
+        jLabel37 = new javax.swing.JLabel();
+        cb_player2 = new javax.swing.JComboBox<>();
+        pg1 = new javax.swing.JProgressBar();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        pg2 = new javax.swing.JProgressBar();
+        jLabel40 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -147,6 +161,12 @@ public class PrincipalLab8 extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
         jLabel1.setText("Nombre");
 
@@ -733,15 +753,72 @@ public class PrincipalLab8 extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Modificar/elminar", jPanel2);
 
+        cb_player1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel37.setText("VS");
+
+        cb_player2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel38.setText("Hada 1");
+
+        jLabel39.setText("Salud 1");
+
+        jLabel40.setText("Salud 2");
+
+        jButton9.setText("COMENZAR BATALLA");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 664, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jLabel39)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel40)
+                .addGap(239, 239, 239))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pg1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+                            .addComponent(cb_player1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel37)
+                        .addGap(59, 59, 59)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(pg2, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                            .addComponent(cb_player2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(jLabel38))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(185, 185, 185)
+                        .addComponent(jButton9)))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 423, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel38)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cb_player1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel37)
+                    .addComponent(cb_player2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel39)
+                    .addComponent(jLabel40))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pg1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pg2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(216, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Pelea", jPanel4);
@@ -749,12 +826,27 @@ public class PrincipalLab8 extends javax.swing.JFrame {
         jMenu1.setText("File");
 
         jMenuItem1.setText("Abrir");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Guardar");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Guardar Como");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("About");
@@ -923,8 +1015,7 @@ public class PrincipalLab8 extends javax.swing.JFrame {
        
         JOptionPane.showMessageDialog(this, "Se a agregado exitosamente");
        
-        
-        
+       
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -1033,6 +1124,93 @@ public class PrincipalLab8 extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        
+        // Guardar 
+        
+        if (ap.getArchivo() == null) {
+            JFileChooser jfc = new JFileChooser();
+            int seleccion = jfc.showSaveDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION) {
+                ap.setArchivo(jfc.getSelectedFile());
+                ap.escribirArchivo();
+            }
+        } else {
+            ap.escribirArchivo();
+        }
+      
+        
+        
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        
+        JFileChooser jfc = new JFileChooser();
+        int seleccion = jfc.showSaveDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            ap.setArchivo(jfc.getSelectedFile());
+            ap.escribirArchivo();
+        }
+        ap.escribirArchivo();
+        
+        
+        
+        
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        
+        DefaultComboBoxModel model = new DefaultComboBoxModel();
+        for (Hadas t : hadas) {
+            if (t instanceof Silfides) {
+                model.addElement(t);
+            }
+        }
+        cb_silfides.setModel(model);
+        
+        model = new DefaultComboBoxModel();
+        for (Hadas t : hadas) {
+            if (t instanceof Salamandras) {
+                model.addElement(t);
+            }
+        }
+        cb_Salamandras.setModel(model);
+        model = new DefaultComboBoxModel();
+        for (Hadas t : hadas) {
+            if (t instanceof Hamadriades) {
+                model.addElement(t);
+            }
+        }
+        cb_Hamadrades.setModel(model);
+        model = new DefaultComboBoxModel();
+        for (Hadas t : hadas) {
+            if (t instanceof Lamias) {
+                model.addElement(t);
+            }
+        }
+        cb_lamias.setModel(model);
+        
+        
+    }//GEN-LAST:event_jTabbedPane1StateChanged
+
+    
+    String carpeta_guardada;
+    
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+            JFileChooser jfc = new JFileChooser();
+            int seleccion = jfc.showOpenDialog(this);
+            if (seleccion == JFileChooser.APPROVE_OPTION){
+                
+                ap.setArchivo(jfc.getSelectedFile());
+                ap.cargarArchivoBinario();
+                ap.escribirArchivo();
+            
+            }
+   
+        
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1072,6 +1250,8 @@ public class PrincipalLab8 extends javax.swing.JFrame {
     private javax.swing.JComboBox<Hamadriades> cb_Hamadrades;
     private javax.swing.JComboBox<Salamandras> cb_Salamandras;
     private javax.swing.JComboBox<Lamias> cb_lamias;
+    private javax.swing.JComboBox<String> cb_player1;
+    private javax.swing.JComboBox<String> cb_player2;
     private javax.swing.JComboBox<Silfides> cb_silfides;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -1081,6 +1261,7 @@ public class PrincipalLab8 extends javax.swing.JFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1111,7 +1292,11 @@ public class PrincipalLab8 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -1138,6 +1323,8 @@ public class PrincipalLab8 extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JProgressBar pg1;
+    private javax.swing.JProgressBar pg2;
     private javax.swing.JTextField tf_AletasLamia;
     private javax.swing.JTextField tf_AletasLamia1;
     private javax.swing.JTextField tf_NAlasSalamandras;

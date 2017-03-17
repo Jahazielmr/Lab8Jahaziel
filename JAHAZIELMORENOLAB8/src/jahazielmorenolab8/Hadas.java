@@ -1,8 +1,11 @@
 package jahazielmorenolab8;
 
+import java.io.Serializable;
 import javax.swing.JOptionPane;
 
-public abstract class Hadas {
+public abstract class Hadas implements Serializable{
+    
+    private static final long SerialVersionUID = 777L;
     
     protected String nombre;
     protected float estatura;
